@@ -39,7 +39,12 @@ public:
 
     template<typename Type>
     struct Count
-    { enum { Result = EQUAL<Head, Type>::Result + Tail::template Count<Type>::Result }; };
+    { 
+        enum 
+        { 
+            Result = EQUAL<Head, Type>::Result + Tail::template Count<Type>::Result 
+        }; 
+    };
 
     enum { Polymorphic = (int(Length) != int(Count<Head>::Result)) };
 };
