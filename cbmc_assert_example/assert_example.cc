@@ -6,8 +6,11 @@
 #include <cstdlib>
 #include <ctime>
 
+#include "alpha.h"
+
 int getN()
 {
+    assert(10 < 222);
     return 1 + 1;
 }
 
@@ -15,8 +18,12 @@ int main()
 {
     /* If use only this, 0 VCCs remain after simplification
      */
-    assert(getN() == 2);
+    // assert(getN() == 2);
 
+    /* a function is checked only if it is used */
+    getN();
+
+    sum(2,1);
 
     /* This does not hold */
     /*

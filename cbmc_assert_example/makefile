@@ -1,10 +1,14 @@
-SRC := assert_example.cc
+SRC := *.cc
 
 all: check
 
 
 check:
 	cbmc $(SRC) --bounds-check --pointer-check -DCBMC
+
+
+check_function:
+	cbmc $(SRC) --function sum --bounds-check --pointer-check -DCBMC
 
 
 program:
