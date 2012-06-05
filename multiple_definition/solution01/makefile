@@ -7,7 +7,7 @@ all: elf
 
 
 elf: $(OBJECTS)
-	g++ $(SRC) -o $(PROGRAM)
+	g++ $(OBJECTS) -o $(PROGRAM)
 
 
 clean:
