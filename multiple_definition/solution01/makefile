@@ -14,9 +14,7 @@ clean:
 	rm -f $(PROGRAM) *.o
 
 
-.cc.o :
-	g++ -Werror -c -o $@ $<
+%.o: %.cc
+	g++ -Werror -c -g $< -o $@
 
-
-.SUFFIXES: .o .cc
 
