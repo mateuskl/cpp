@@ -1,0 +1,51 @@
+cbmc ./main.cc --function foo --pointer-check -I .
+file ./main.cc: Parsing
+Converting
+Type-checking main
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Partial Inlining
+Generic Property Instrumentation
+Pointer Analysis
+Adding Pointer Checks
+Starting Bounded Model Checking
+size of program expression: 11 assignments
+simple slicing removed 1 assignments
+Generated 1 VCC(s), 1 remaining after simplification
+Passing problem to propositional reduction
+Running propositional reduction
+Solving with MiniSAT2 with simplifier
+102 variables, 151 clauses
+SAT checker: negated claim is SATISFIABLE, i.e., does not hold
+Runtime decision procedure: 0.001s
+Building error trace
+
+Counterexample:
+
+State 2 file <built-in> line 9 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_is_new_array=FALSE (0)
+
+State 3 file <built-in> line 27 thread 0
+----------------------------------------------------
+  __CPROVER_deallocated=NULL (00000000000000000000000000000000)
+
+State 4 file <built-in> line 28 thread 0
+----------------------------------------------------
+  __CPROVER_malloc_object=NULL (00000000000000000000000000000000)
+
+State 7 file ./alpha.hh line 13 thread 0
+----------------------------------------------------
+  this=NULL (00000000000000000000000000000000)
+
+State 8 file ./alpha.hh line 13 thread 0
+----------------------------------------------------
+  this=4194304 + NULL (00000000010000000000000000000000)
+
+Violated property:
+  file ./alpha.hh line 15
+  dereference failure: invalid pointer
+  !(INVALID-POINTER(this))
+
+VERIFICATION FAILED
