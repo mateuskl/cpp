@@ -14,3 +14,6 @@ check_insert:
 
 check_contains:
 	cbmc $(SOURCE) --function contains --pointer-check -I $(INCLUDE)
+
+check_bubble_sort:
+	cbmc $(SOURCE) --function bubble_sort --pointer-check -I $(INCLUDE)

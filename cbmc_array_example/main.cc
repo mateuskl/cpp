@@ -42,6 +42,29 @@ void insert(unsigned int element, unsigned int position)
 }
 
 
+void bubble_sort()
+{
+    bool swapped;
+    unsigned int temp = 0;
+    int i;
+    int j;
+    for (i = num_elements - 1; i; swapped = false, i--) 
+    {
+        for (j = 0; j < i; j++)
+        {
+            if (__elements[j] > __elements[j+1]) 
+            {
+                temp = __elements[j];
+                __elements[j] = __elements[j+1];
+                __elements[j+1] = temp;
+                swapped = true;
+             }
+        }     
+        if (!swapped) break;
+    }
+}
+
+
 
 int main()
 {
