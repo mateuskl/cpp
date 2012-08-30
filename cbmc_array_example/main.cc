@@ -62,6 +62,17 @@ void bubble_sort()
         }     
         if (!swapped) break;
     }
+    
+    
+    unsigned int n;
+    unsigned int c;
+    for (i = 0, j = 1; (i < num_elements) && (j < num_elements - 1); i++, j++)
+    {
+        c = __elements[i];
+        n = __elements[j];
+        assert(c <= n);
+    }
+    
 }
 
 
