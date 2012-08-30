@@ -26,9 +26,16 @@ bool contains(unsigned int element)
     return false;
 }
 
+void invariants(unsigned int position)
+{
+    __CPROVER_assume(position < num_elements);
+    assert(position < num_elements);
+}
 
 void insert(unsigned int element, unsigned int position)
 {
+    invariants(position);
+    
     __elements[position] = element;
     
     assert(contains(element));
