@@ -10,7 +10,7 @@ public:
 
     bool foo()
     {
-        __CPROVER_assume(this);
+        // __CPROVER_assume(this);
         
         return (size == 0);
     }
