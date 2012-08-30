@@ -11,15 +11,11 @@ void init()
 
 void inc()
 {
-    int b = 0;
+    int size_at_pre = size;
     
-    assert(b == 0);
+    size = size + 1;
     
-    // assert(size >= 1); //  not works
-    assert(size == 0);
-    size ++;
-    assert(size == 1);
-    // assert(size == 2);
+    assert(size == size_at_pre + 1);
 }
 
 
