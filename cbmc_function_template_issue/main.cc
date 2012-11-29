@@ -43,6 +43,8 @@ int main()
     // sp.foo(); // does not work even for g++
     sp.foo<int>();
     
+    *sp.foo<int>() = 3;
+    
     return 0;
 }
 
