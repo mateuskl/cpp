@@ -1,41 +1,49 @@
+#define PROBLEM_ONE 0
+
 class Log_Addr
 {
 public:
     
+#if PROBLEM_ONE    
+    template <typename T>
+    operator T *() const 
+    { 
+        return reinterpret_cast<T *>(_addr); 
+    }
+    
+    // Quick and dirt solution:
+    /* 
+     operator int *() const 
+     { 
+         return reinterpret_cast<int *>(_addr); 
+     }
+    */ 
+#endif
 
-    // operator int *() const { return reinterpret_cast<int *>(_addr); }
+    template <typename T>
+    T* foo() const 
+    { 
+        return reinterpret_cast<T *>(_addr); 
+    }
 
-template <typename T>
-static T func(void* addr) 
-{ 
-    return reinterpret_cast<T>(addr); 
-}
 
 private:
-    void* _addr;
+    unsigned int _addr;
 };
-
-/* works
-template <typename T>
-T func(void* addr) 
-{ 
-    return reinterpret_cast<T>(addr); 
-}
-*/ 
 
 
 int main()
 { 
-    void* s;
-    int i;
+    Log_Addr sp;
     
-    i = Log_Addr::func<int>(s);
+#if PROBLEM_ONE    
+    static_cast<int *>(sp); // Question: how to specify that T is an int?
+#endif
 
-    
-    // *reinterpret_cast<int *>(s);
-    
-    //*static_cast<char *>(s);
-    //*static_cast<float *>(s);
+    // sp.foo(); // does not work even for g++
+    sp.foo<int>();
     
     return 0;
 }
+
+
