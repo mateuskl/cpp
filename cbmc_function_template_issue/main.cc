@@ -20,6 +20,9 @@ public:
     */ 
 #endif
 
+    /* A plausible solution. 
+     * However it requires to replace all "static_cast" to "cast_to". 
+     */
     template <typename T>
     T cast_to() const 
     { 
