@@ -21,9 +21,9 @@ public:
 #endif
 
     template <typename T>
-    T* foo() const 
+    T cast_to() const 
     { 
-        return reinterpret_cast<T *>(_addr); 
+        return reinterpret_cast<T>(_addr); 
     }
 
 
@@ -41,9 +41,9 @@ int main()
 #endif
 
     // sp.foo(); // does not work even for g++
-    sp.foo<int>();
+    sp.cast_to<int *>();
     
-    *sp.foo<int>() = 3;
+    *(sp.cast_to<int *>()) = 3;
     
     return 0;
 }
