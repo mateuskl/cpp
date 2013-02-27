@@ -3,7 +3,7 @@ GOTOCC := /usr/local/local_programs/cbmc/src/goto-cc/goto-cc
 all: comp clean check
 
 check:
-	goto-cc -c main.cc -I .
+	goto-cc main.cc -I .
 
 comp:
 	g++ main.cc -I .
