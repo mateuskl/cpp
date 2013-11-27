@@ -1,3 +1,7 @@
+#ifndef CBMC
+#include <cassert>
+#endif
+
 int main() 
 {
     int dec[10];
