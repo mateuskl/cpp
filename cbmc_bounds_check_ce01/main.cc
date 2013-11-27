@@ -1,3 +1,7 @@
+#ifndef CBMC
+#include <cassert>
+#endif
+
 int main() 
 {
     int dec[10];
@@ -6,6 +10,8 @@ int main()
     {
         dec[i] = i;
     }
+    
+    dec[10] = 55;
 
     return 0;
 }
